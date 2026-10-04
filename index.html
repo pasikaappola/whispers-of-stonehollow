@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Whispers of Stonehollow.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Whispers of Stonehollow" startnode="33" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="149EE76E-29DE-4660-B490-0F640EDBFEAF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* Whispers of Stonehollow */
+<tw-storydata name="Whispers of Stonehollow" startnode="17" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="149EE76E-29DE-4660-B490-0F640EDBFEAF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* Whispers of Stonehollow */
 
 tw-story {
     background-color: #121212;
@@ -115,7 +115,26 @@ tw-link:hover {
   text-align: center;
   color: #aaa;
   margin-bottom: 10px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="nofooter" color="green"></tw-tag><tw-passagedata pid="1" name="Ask about the Keymaster" tags="" position="1225,1475" size="100,100">(set: $talkedToRowan to 1)
+}
+
+.hp-hud {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #111;
+  border: 1px solid #888;
+  padding: 6px 12px;
+  font-family: monospace;
+  color: #eee;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+tw-include[type="header"] {
+  display: block;
+  height: 0;
+  overflow: visible;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="nofooter" color="green"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-passagedata pid="1" name="Ask about the Keymaster" tags="" position="1225,1475" size="100,100">(set: $talkedToRowan to 1)
 (set: $clueRowan to 1)
 &lt;img src=&quot;images/rowankeymaster.png&quot; alt=&quot;Brother Rowan&quot;&gt;
 &#39;&#39;Note added to Journal:&#39;&#39; You received a blessing, now go and find the Keymaster.
@@ -165,16 +184,16 @@ tw-link:hover {
     &lt;source src=&quot;audio/drunkenman2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="6" name="Boar Defeated" tags="" position="2275,1300" size="100,100">&lt;img src=&quot;images/boardefeat.png&quot; alt=&quot;Victory&quot;&gt;
 [[Loot-&gt;Loot Boar]]  || [[Go Back-&gt;Follow the Road]] 
-&lt;audio autoplay&gt;
-  &lt;source src=&quot;audio/victory.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-&lt;/audio&gt;
 &lt;audio autoplay loop&gt;
   &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="7" name="Buy an apple" tags="" position="1175,850" size="100,100">&lt;img src=&quot;images/apple.png&quot; alt=&quot;An apple&quot;&gt;
 [[Talk to Merchant-&gt;Talk to Merchant]]  ||  [[Back to Marketplace-&gt;Marketplace]] 
 &lt;audio autoplay loop&gt;
     &lt;source src=&quot;audio/marketplace2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="8" name="Continue River" tags="" position="2125,1575" size="100,100"></tw-passagedata><tw-passagedata pid="9" name="Continue Road" tags="" position="2075,1100" size="100,100">(set: $lastCombatMsg to &quot;&quot;)
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="8" name="Continue River" tags="" position="2125,1575" size="100,100">[[Crowwater Bridge-&gt;Crowwater Bridge]] || [[Stone Markers at the River-&gt;Stone Markers at the River]] || [[Go Back-&gt;Follow the River]] 
+&lt;audio autoplay&gt;
+  &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="9" name="Continue Road" tags="" position="2075,1100" size="100,100">(set: $lastCombatMsg to &quot;&quot;)
 &lt;img src=&quot;images/wagon.png&quot; alt=&quot;The Old North Road&quot;&gt;
 [[Search the Wagon-&gt;Search the Wagon]] || [[Follow the tracks-&gt;Follow the tracks]] || [[Continue the Road-&gt;Continue the Road]] || [[Go Back-&gt;Follow the Road]] 
 &lt;audio autoplay loop&gt;
@@ -256,7 +275,7 @@ Your HP: [(str-repeated: $pBars, &quot;‚ñà&quot;)(str-repeated: $pEmpty, &quot;‚
 &lt;audio autoplay loop&gt;
   &lt;source src=&quot;audio/fight.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;
-]</tw-passagedata><tw-passagedata pid="16" name="Game Over" tags="" position="2325,1475" size="100,100">[[Restart-&gt;Old North Road]]</tw-passagedata><tw-passagedata pid="17" name="Give the key to Rowan" tags="" position="1475,1400" size="100,100">(set: $gateKey to 0)
+]</tw-passagedata><tw-passagedata pid="16" name="Game Over" tags="" position="2350,1425" size="100,100">[[Restart-&gt;Old North Road]]</tw-passagedata><tw-passagedata pid="17" name="Give the key to Rowan" tags="" position="1475,1400" size="100,100">(set: $gateKey to 0)
 &lt;video autoplay playsinline&gt;
   &lt;source src=&quot;videos/gateopen.mp4&quot; type=&quot;video/mp4&quot;&gt;
 &lt;/video&gt;
@@ -433,9 +452,6 @@ Your HP: [(str-repeated: $pBars, &quot;‚ñà&quot;)(str-repeated: $pEmpty, &quot;‚
   &lt;source src=&quot;audio/fight.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="31" name="Millcrawler Defeated" tags="" position="2200,2025" size="100,100">&lt;img src=&quot;images/millcrawlerdefeat.png&quot; alt=&quot;Victory&quot;&gt;
 [[Search the dark corner-&gt;Search corner]]  || [[Go Back-&gt;Search Mill]] 
-&lt;audio autoplay&gt;
-  &lt;source src=&quot;audio/victory.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-&lt;/audio&gt;
 &lt;audio autoplay loop&gt;
   &lt;source src=&quot;audio/alleyrain2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="32" name="Old North Road" tags="" position="1650,1450" size="100,100">&lt;img src=&quot;images/northroad.png&quot; alt=&quot;The Old North Road&quot;&gt;
@@ -554,13 +570,12 @@ Your HP: [(str-repeated: $pBars, &quot;‚ñà&quot;)(str-repeated: $pEmpty, &quot;‚
 &lt;audio autoplay loop&gt;
   &lt;source src=&quot;audio/alleyrain2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="39" name="Search the Wagon" tags="" position="1950,925" size="100,100">(set: $rangerMap to 1)
-The map is now available below.
+ &lt;img src=&quot;images/rangermap_found.png&quot; alt=&quot;Ranger Map&quot;&gt;
 [[Go Back-&gt;Continue Road]] 
 &lt;audio autoplay&gt;
     &lt;source src=&quot;audio/treasure.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;
-
-You find an old Ranger&#39;s map. It reveals the paths through the wilderness ahead.</tw-passagedata><tw-passagedata pid="40" name="Speak to Brother Rowan" tags="" position="850,1475" size="100,100">&lt;img src=&quot;images/rowanriver.png&quot; alt=&quot;Brother Rowan&quot;&gt;
+</tw-passagedata><tw-passagedata pid="40" name="Speak to Brother Rowan" tags="" position="850,1475" size="100,100">&lt;img src=&quot;images/rowanriver.png&quot; alt=&quot;Brother Rowan&quot;&gt;
 [[Ask about the Wilderness-&gt;Ask about the Wilderness]]  ||  [[Leave-&gt;Go to Chapel]] 
 &lt;audio controls&gt;
     &lt;source src=&quot;audio/rowanriver.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
@@ -626,8 +641,6 @@ You find an old Ranger&#39;s map. It reveals the paths through the wilderness ah
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="48" name="Wolf Defeated" tags="" position="2475,1050" size="100,100">&lt;img src=&quot;images/wolfdefeat.png&quot; alt=&quot;Victory&quot;&gt;
 [[Continue Road-&gt;Old Watchtower]]  || [[Go Back-&gt;Continue Road]] 
 &lt;audio autoplay&gt;
-  &lt;source src=&quot;audio/victory.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-&lt;/audio&gt;
 &lt;audio autoplay loop&gt;
   &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="49" name="footer" tags="footer" position="950,50" size="100,100">---
@@ -750,7 +763,34 @@ You find an old Ranger&#39;s map. It reveals the paths through the wilderness ah
 &lt;/audio&gt;
 &lt;audio autoplay&gt;
     &lt;source src=&quot;audio/treasure.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-&lt;/audio&gt;</tw-passagedata></tw-storydata>
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="63" name="HpHud" tags="header" position="1575,50" size="100,100">(if: (passage:)&#39;s tags does not contain &quot;nofooter&quot;)[
+  &lt;div class=&quot;hp-hud&quot;&gt;‚ù§Ô∏è HP: (print: $playerHp)/(print: $playerMaxHp)&lt;/div&gt;
+]</tw-passagedata><tw-passagedata pid="64" name="Crowwater Bridge" tags="" position="2500,1575" size="100,100">(if: $bridgeDown is 0)[
+  &lt;img src=&quot;images/crowwater_bridge_up.png&quot; alt=&quot;Broken Raised&quot;&gt;
+  
+  The bridge has been raised. There&#39;s no way across from here.
+  
+[[Go Back-&gt;Continue River]]
+]
+(else:)[
+  &lt;img src=&quot;images/crowwater_bridge_down.png&quot; alt=&quot;Bridge Crossing&quot;&gt;
+[[Toward the Mountains-&gt;Toward the Mountains]] || [[Go Back-&gt;Continue River]]
+]
+&lt;audio autoplay&gt;
+  &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="65" name="Stone Markers at the River" tags="" position="2300,1725" size="100,100">  &lt;img src=&quot;images/stonemarkers.png&quot; alt=&quot;Stone Markers&quot;&gt;
+[[Continue-&gt;Examine the Markers]] || [[Search Mill-&gt;Clear the Fallen Marker]] ||   [[Go Back-&gt;Continue River]] 
+&lt;audio autoplay&gt;
+  &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="66" name="Examine the Markers" tags="" position="2575,1750" size="100,100"> &lt;img src=&quot;images/stonemarker_miller.png&quot; alt=&quot;Miller&#39;s Note&quot;&gt;
+ [[Go Back-&gt;Stone Markers at the River]] 
+&lt;audio autoplay&gt;
+  &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="67" name="Clear the Fallen Marker" tags="" position="2575,1900" size="100,100"> &lt;img src=&quot;images/stonemarker_fallen.png&quot; alt=&quot;Fallen Marker&quot;&gt;
+ [[Go Back-&gt;Stone Markers at the River]] 
+&lt;audio autoplay&gt;
+  &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="68" name="Toward the Mountains" tags="" position="2725,1600" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

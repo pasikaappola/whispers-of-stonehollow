@@ -1,0 +1,1074 @@
+:: StoryTitle
+Whispers of Stonehollow
+
+
+:: StoryData
+{
+  "ifid": "149EE76E-29DE-4660-B490-0F640EDBFEAF",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Give the key to Rowan",
+  "tag-colors": {
+    "footer": "purple",
+    "nofooter": "green",
+    "header": "blue"
+  },
+  "zoom": 1
+}
+
+
+:: Ask about the Keymaster {"position":"1225,1475","size":"100,100"}
+(set: $talkedToRowan to 1)
+(set: $clueRowan to 1)
+<img src="images/rowankeymaster.png" alt="Brother Rowan">
+''Note added to Journal:'' You received a blessing, now go and find the Keymaster.
+[[Leave->Go to Chapel]] 
+<audio controls>
+    <source src="audio/rowankeymaster.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/chant.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Ask about the River {"position":"950,875","size":"100,100"}
+(set: $clueChapel to 1)
+<img src="images/merchantspeak.png" alt="The Merchant Speaks">
+''Note added to Journal:'' Go to the Alley and find The Chapel. 
+[[Go to Alley->Go to Alley]]  ||  [[Go Back->Talk to Merchant]] 
+<audio controls>
+    <source src="audio/merchantspeak.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/marketplace2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Ask about the Wilderness {"position":"1050,1475","size":"100,100"}
+<img src="images/rowanwilderness.png" alt="Brother Rowan">
+[[Ask about the Keymaster->Ask about the Keymaster]]  ||  [[Leave->Go to Chapel]] 
+<audio controls>
+    <source src="audio/rowanwilderness.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/chant.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Ask about the river flow {"position":"400,650","size":"100,100"}
+<img src="images/innkeeper.png" alt="Innkeeper">
+[[Back->Inn]]
+<audio controls>
+    <source src="audio/innkeeper.mp3" type="audio/mpeg">
+</audio>
+
+<audio autoplay loop>
+    <source src="audio/drunkenman2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Ask recent news {"position":"575,750","size":"100,100"}
+<img src="images/recentnews.png" alt="Innkeeper">
+[[Back->Inn]]
+<audio controls>
+    <source src="audio/recentnews.mp3" type="audio/mpeg">
+</audio>
+
+<audio autoplay loop>
+    <source src="audio/drunkenman2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Boar Defeated {"position":"2275,1300","size":"100,100"}
+<img src="images/boardefeat.png" alt="Victory">
+[[Loot->Loot Boar]]  || [[Go Back->Follow the Road]] 
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Buy an apple {"position":"1175,850","size":"100,100"}
+<img src="images/apple.png" alt="An apple">
+[[Talk to Merchant->Talk to Merchant]]  ||  [[Back to Marketplace->Marketplace]] 
+<audio autoplay loop>
+    <source src="audio/marketplace2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Clear the Fallen Marker {"position":"2575,1900","size":"100,100"}
+ <img src="images/stonemarker_fallen.png" alt="Fallen Marker">
+ [[Go Back->Stone Markers at the River]] 
+<audio autoplay>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Climb the Stairs {"position":"3075,850","size":"100,100"}
+<img src="images/watchtower_second2.png" alt="Old Watchtower">
+ [[Climb the Stairs->Climb to Top]] || [[ Look at the Table->Look at the Table]] ||[[Go Down->Enter the Tower]] 
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Climb to Top {"position":"3225,750","size":"100,100"}
+<img src="images/watchtower_top.png" alt="Old Watchtower">
+ [[Examine the Mechanism->Examine the Mechanism]] || [[ Look towards the Mountains->Look towards to Mountains]] ||[[Go Down->Climb the Stairs]] 
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Continue River {"position":"2125,1575","size":"100,100"}
+[[Crowwater Bridge->Crowwater Bridge]] || [[Stone Markers at the River->Stone Markers at the River]] || [[Go Back->Follow the River]] 
+<audio autoplay>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Continue Road {"position":"2075,1100","size":"100,100"}
+(set: $lastCombatMsg to "")
+<img src="images/wagon.png" alt="The Old North Road">
+[[Search the Wagon->Search the Wagon]] || [[Follow the tracks->Follow the tracks]] || [[Continue the Road->Continue the Road]] || [[Go Back->Follow the Road]] 
+<audio autoplay loop>
+  <source src="audio/wagonsound.mp3" type="audio/mpeg">
+</audio>
+
+
+
+:: Continue the Road {"position":"2175,850","size":"100,100"}
+ (if: $rangerMap is 0)[
+<img src="images/no_map.png" alt="Crowwater River">
+[[Go Back->Continue Road]] 
+]
+(else:)[
+ <img src="images/tangledwood.png" alt="The Tangled Wood">
+[[Search Campsite->Search Campsite]] || [[Go Back->Continue Road]] 
+]
+<audio autoplay loop>
+  <source src="audio/wagonsound.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Crowwater Bridge {"position":"2500,1575","size":"100,100"}
+(if: $bridgeDown is 0)[
+  <img src="images/crowwater_bridge_up.png" alt="Broken Raised">
+  
+  The bridge has been raised. There's no way across from here.
+  
+[[Go Back->Continue River]]
+]
+(else:)[
+  <img src="images/crowwater_bridge_down.png" alt="Bridge Crossing">
+[[Toward the Mountains->Toward the Mountains]] || [[Go Back->Continue River]]
+]
+<audio autoplay>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Enter the Chapel {"position":"700,1300","size":"100,100"}
+<img src="images/brotherrowan.png" alt="Brother Rowan">
+[[Speak to Brother Rowan->Speak to Brother Rowan]]  ||  [[Leave->Go to Chapel]] 
+<audio autoplay loop>
+    <source src="audio/chant.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Enter the Stall {"position":"1525,600","size":"100,100"}
+<img src="images/tent2.png" alt="The Stall">
+(if: $talkedToKeymaster is 0)[
+  You can't enter the Stall without the permission.
+]
+(else:)[
+  [[Go Inside->Go Inside]] || 
+]  [[Back to Marketplace->Marketplace]] 
+
+<audio autoplay loop>
+    <source src="audio/marketplace2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Enter the Tower {"position":"2925,950","size":"100,100"}
+<img src="images/watchtower_ground.png" alt="Old Watchtower">
+[[ Search the Room->Search the Room]]|| [[Climb the Stairs->Climb the Stairs]] || [[Leave the Tower->Old Watchtower]] 
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+
+
+
+:: Examine the Markers {"position":"2575,1750","size":"100,100"}
+ <img src="images/stonemarker_miller.png" alt="Miller's Note">
+ [[Go Back->Stone Markers at the River]] 
+<audio autoplay>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Examine the Mechanism {"position":"3375,625","size":"100,100"}
+(if: $boarTusk is 1)[
+  <img src="images/watchtower_lever_on.png" alt="Old Watchtower">
+  [[Use Boar Tusk->Use Boar Tusk]]
+  [[Go Back->Climb to Top]]
+]
+(else:)[
+(set: $clueBoarTusk to 1)
+  <img src="images/watchtower_lever_off.png" alt="Old Watchtower">
+''Note added to Journal:'' Kill a wild boar and get it's tusk.  
+  [[Go Back->Climb to Top]]
+  <audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+]
+
+
+:: Examine the shelves {"position":"1325,1025","size":"100,100"}
+<img src="images/tentkey.png" alt="The Shelves">
+(set: $gateKey to 1)
+Key to the North Gate added to your inventory!
+[[Go to North Gate->Go to North Gate]]  ||  [[Back to Tent->Go Inside]] 
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Follow the River {"position":"1850,1625","size":"100,100"}
+(if: $rangerMap is 0)[
+<img src="images/no_map.png" alt="Crowwater River">
+[[Go Back->Old North Road]] 
+]
+(else:)[
+<img src="images/rivermill.png" alt="Crowwater River">
+[[Continue->Continue River]] || [[Search Mill->Search Mill]] || [[Go Back->Old North Road]] 
+<audio autoplay>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+]
+
+
+
+
+:: Follow the Road {"position":"1900,1275","size":"100,100"}
+(set: $lastCombatMsg to "")
+<img src="images/northroad2.png" alt="The Old North Road">
+[[Search Bushes->Search bushes]] || [[Continue Road->Continue Road]]  || [[Go Back->Old North Road]] 
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Follow the tracks {"position":"2300,1125","size":"100,100"}
+(if: $rangerMap is 0)[
+<img src="images/no_map.png" alt="Crowwater River">
+[[Go Back->Continue Road]] 
+]
+(else:)[
+(if: $enemyHpWolf <= 0)[
+  (goto: "Wolf Defeated")
+]
+(if: $playerHp <= 0)[
+  (goto: "Game Over")
+]
+(if: $lastCombatMsg is not "")[
+  *(print: $lastCombatMsg)*
+]
+<video autoplay playsinline loop>
+  <source src="videos/wolffight.mp4" type="video/mp4">
+</video>
+(set: $hpBars to (floor: $enemyHpWolf / $enemyMaxHpWolf * 10))
+(set: $hpEmpty to 10 - $hpBars)
+Thornfang Wolf *Damage 10-20* HP: [(str-repeated: $hpBars, "█")(str-repeated: $hpEmpty, "░")] (print: $enemyHpWolf)/(print: $enemyMaxHpWolf)
+(set: $pBars to (floor: $playerHp / $playerMaxHp * 10))
+(set: $pEmpty to 10 - $pBars)
+Your HP: [(str-repeated: $pBars, "█")(str-repeated: $pEmpty, "░")] (print: $playerHp)/(print: $playerMaxHp)
+(link: "Attack")[
+  (set: $dmg to (random: 30, 50))
+  (set: $enemyDmg to (random: 10, 20))
+  (set: $enemyHpWolf to (max: 0, $enemyHpWolf - $dmg))
+   (set: $playerHp to (max: 0, $playerHp - $enemyDmg))
+   (set: $lastCombatMsg to "You strike the Wolf for " + (str: $dmg) + " damage. It bites back for " + (str: $enemyDmg) + " damage.")
+ (goto: "Follow the tracks")
+]
+[[Flee->Continue Road]] 
+
+<audio autoplay loop>
+  <source src="audio/fight.mp3" type="audio/mpeg">
+</audio>
+]
+
+
+:: Game Over {"position":"2350,1425","size":"100,100"}
+[[Restart->Old North Road]]
+
+
+:: Give the key to Rowan {"position":"1475,1400","size":"100,100"}
+(set: $gateKey to 0)
+<video autoplay playsinline>
+  <source src="videos/gateopen.mp4" type="video/mp4">
+</video>
+You gave the key to Brother Rowan.
+<audio autoplay loop>
+    <source src="audio/nightgate.mp3" type="audio/mpeg">
+</audio>
+[[Go through the North Gate->Old North Road]] || [[Go back->Go to North Gate]] 
+
+(set: $bridgeDown to 0)
+
+(set: $gateKey to 0)
+(set: $ravenCharm to 0)
+(set: $healthPotions to 5)
+(set: $smallDagger to 1)
+(set: $stoneAxe to 0)
+(set: $boarTusk to 0)
+(set: $northRing to 0)
+(set: $rangerMap to 0)
+
+(set: $clueInnGreet to 0)
+(set: $clueChapel to 0)
+(set: $clueRowan to 0)
+(set: $clueWatchtower to 0)
+(set: $clueBoarTusk to 0)
+(set: $stoneMarkers to 0)
+(set: $clueAxe to 0)
+(set: $clueRangerLog to 0)
+
+(set: $playerHp to 100)
+(set: $playerMaxHp to 100)
+
+(set: $lastCombatMsg to "")
+
+(set: $enemyHpBoar to 100)
+(set: $enemyMaxHpBoar to 100)
+
+(set: $enemyHpWolf to 100)
+(set: $enemyMaxHpWolf to 100)
+
+(set: $enemyHpCrawler to 100)
+(set: $enemyMaxHpCrawler to 100)
+
+
+:: Go Inside {"position":"1375,850","size":"100,100"}
+<img src="images/tent.png" alt="The Stall">
+[[Examine the shelves->Examine the shelves]] ||  [[Look at the Raven->Look at the Raven]]   ||  [[Back to Marketplace->Marketplace]] 
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+  <source src="audio/tentraven.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Go to Alley {"position":"1100,1050","size":"100,100"}
+<img src="images/alley.png" alt="Alley of Stonehollow">
+[[Go to Chapel->Go to Chapel]]  ||  [[Back to Marketplace->Marketplace]] 
+<audio autoplay loop>
+    <source src="audio/alleyrain.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Go to Chapel {"position":"725,1050","size":"100,100"}
+<img src="images/chapel.png" alt="Chapel of Stonehollow">
+[[Enter the Chapel->Enter the Chapel]]  ||  [[Back to Alley->Go to Alley]] 
+<audio autoplay loop>
+    <source src="audio/chapelrain.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/chapelwolf.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Go to North Gate {"position":"1475,1225","size":"100,100"}
+<img src="images/northgate.png" alt="The North Gate of Stonehollow">
+[[Give the key to Rowan->Give the key to Rowan]]|| [[Back to Marketplace->Marketplace]] 
+<audio autoplay loop>
+    <source src="audio/nightgate.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+  <source src="audio/gaterowan.mp3" type="audio/mpeg">
+</audio>
+
+
+:: HpHud [header] {"position":"1575,50","size":"100,100"}
+(if: (passage:)'s tags does not contain "nofooter")[
+  <div class="hp-hud">❤️ HP: (print: $playerHp)/(print: $playerMaxHp)</div>
+]
+
+
+:: Inn {"position":"550,400","size":"100,100"}
+<video autoplay playsinline loop>
+  <source src="videos/innvideo.mp4" type="video/mp4">
+</video>
+
+[[Ask about the river->Ask about the river flow]] || [[Ask recent news->Ask recent news]]  || [[Order a pint->Order a pint]] || [[Leave Inn->Village]]
+
+
+:: Inventory {"position":"1425,125","size":"100,100"}
+<div class="inventory-panel">
+(if: $gateKey is 1)[🗝️ Key to the North Gate<br>]
+(if: $ravenCharm is 1)[🐦 The Raven Charm<br>]
+(if: $smallDagger is 1)[🗡️ Shepherd's Dagger (30-50 dam)<br>]
+(if: $stoneAxe is 1)[🪓 <span class="glow-text">Stonebreaker Axe (50-70 dam)</span>)<br>]
+(if: $healthPotions > 0)[🧪 You have (text-color: red)[Health Potions] x(print: $healthPotions). (link: "Use")[
+  (set: $healthPotions to $healthPotions - 1)
+  (set: $playerHp to (min: $playerMaxHp, $playerHp + 30))
+  (goto: (history:)'s last)
+]]<br>
+(else:)[🧪 No Health Potions remaining.]<br>
+(if: $boarTusk is 1)[🦷 Boar Tusk<br>]
+(if: $northRing is 1)[💍 Ring of the North Watch<br>]
+</div>
+(link: "Close")[(goto: (history:)'s last)]
+<audio autoplay>
+  <source src="audio/inventory.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Journal {"position":"1325,0","size":"100,100"}
+<div class="journal-panel">
+(if: $clueInnGreet is 1)[📝 Pass the greetings to the Market Merchant.<br>]
+(if: $clueChapel is 1)[📝 Go to the Alley and find The Chapel.<br>]
+(if: $clueRowan is 1)[📝 You received a blessing, now go and find the Keymaster.<br>]
+(if: $stoneMarkers is 1)[📝 Search for Stone Markers upstream.<br>]
+(if: $clueWatchtower is 1)[📝 Find the Old Watchtower.<br>]
+(if: $clueBoarTusk is 1)[📝 Kill a wild boar and get it's tusk.<br>]
+(if: $clueAxe is 1)[📝 Miller hid a powerful weapon in the Old Mill. You should find it before continuing to Northern Foothills..<br>]
+(if: $clueRangerLog is 1)[📝 Reach out the Highridge Outpost in Northern Foothills.<br>]
+
+</div>
+(link: "Close")[(goto: (history:)'s last)]
+<audio autoplay>
+  <source src="audio/journal.mp3" type="audio/mpeg">
+</audio>
+
+
+
+
+
+
+:: Keymaster {"position":"1650,300","size":"100,100"}
+(set: $talkedToKeymaster to 1)
+<img src="images/keymasterspeak.png" alt="The Keymaster">
+[[Enter the Stall->Enter the Stall]] || [[Back to Marketplace->Marketplace]] 
+  <audio controls>
+    <source src="audio/keymaster.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/marketplace2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+  <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Look at the Raven {"position":"1700,875","size":"100,100"}
+<img src="images/ravencharm.png" alt="The Raven">
+(set: $ravenCharm to 1)
+Raven Charm added to your inventory!
+[[Back to tent->Go Inside]]  ||  [[Back to Marketplace->Marketplace]] 
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Look at the Table {"position":"3200,1000","size":"100,100"}
+<img src="images/watchtower_table.png" alt="Old Watchtower">
+ [[Read Ranger's Log->Read Ranger's Log]] || [[ Read Miller's Note->Read Miller's Note]] || [[Go Back->Climb the Stairs]] 
+ <audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Look towards to Mountains {"position":"3350,875","size":"100,100"}
+<img src="images/watchtower_view.png" alt="Northern Foothills">
+[[Go Back->Climb to Top]] 
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Loot Boar {"position":"2425,1250","size":"100,100"}
+(set: $boarTusk to 1)
+<img src="images/boartusk.png" alt="Victory">
+[[Go Back->Follow the Road]] 
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Map {"position":"1275,200","size":"100,100"}
+<img src="images/rangermap_final2.png" alt="The Wilderness">
+(link: "Close")[(goto: (history:)'s last)]
+<audio autoplay>
+  <source src="audio/journal.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Marketplace {"position":"1150,400","size":"100,100"}
+<img src="images/marketplace.png" alt="The Marketplace">
+ [[Talk to Merchant->Talk to Merchant]] ||  [[Enter the Stall->Enter the Stall]] ||   [[Talk to Stranger->Talk to Stranger]]  ||  [[Back to Village->Village]] 
+<audio autoplay loop>
+    <source src="audio/marketplace.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/marketplace2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Millcrawler {"position":"2050,2000","size":"100,100"}
+(if: $enemyHpCrawler <= 0)[
+  (goto: "Millcrawler Defeated")
+]
+(if: $playerHp <= 0)[
+  (goto: "Game Over")
+]
+(if: $lastCombatMsg is not "")[
+  *(print: $lastCombatMsg)*
+]
+<video autoplay playsinline loop>
+  <source src="videos/millacrawler.mp4" type="video/mp4">
+</video>
+(set: $hpBars to (floor: $enemyHpCrawler / $enemyMaxHpCrawler * 10))
+(set: $hpEmpty to 10 - $hpBars)
+Millcrawler *Damage 10-20* HP: [(str-repeated: $hpBars, "█")(str-repeated: $hpEmpty, "░")] (print: $enemyHpCrawler)/(print: $enemyMaxHpCrawler)
+(set: $pBars to (floor: $playerHp / $playerMaxHp * 10))
+(set: $pEmpty to 10 - $pBars)
+Your HP: [(str-repeated: $pBars, "█")(str-repeated: $pEmpty, "░")] (print: $playerHp)/(print: $playerMaxHp)
+(link: "Attack")[
+  (set: $dmg to (random: 30, 50))
+  (set: $enemyDmg to (random: 10, 20))
+  (set: $enemyHpCrawler to (max: 0, $enemyHpCrawler - $dmg))
+   (set: $playerHp to (max: 0, $playerHp - $enemyDmg))
+   (set: $lastCombatMsg to "You strike the Crawler for " + (str: $dmg) + " damage. It bites back for " + (str: $enemyDmg) + " damage.")
+ (goto: "Millcrawler")
+]
+[[Flee->Search Mill]] 
+
+<audio autoplay loop>
+  <source src="audio/fight.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Millcrawler Defeated {"position":"2200,2025","size":"100,100"}
+<img src="images/millcrawlerdefeat.png" alt="Victory">
+[[Search the dark corner->Search corner]]  || [[Go Back->Search Mill]] 
+<audio autoplay loop>
+  <source src="audio/alleyrain2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Old North Road {"position":"1650,1450","size":"100,100"}
+<img src="images/northroad.png" alt="The Old North Road">
+
+[[Follow the River->Follow the River]] || [[Follow the Road->Follow the Road]]  || [[Back to Stonehollow->Marketplace]] 
+
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Old Watchtower {"position":"2700,950","size":"100,100"}
+<img src="images/watchtower.png" alt="Old Watchtower">
+[[ Enter the Tower->Enter the Tower]]|| [[Go Back->Continue Road]] 
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+
+
+:: Opening [nofooter] {"position":"625,150","size":"100,100"}
+
+[[Start your journey->Start]]
+(set: $talkedToRowan to 0)
+(set: $talkedToKeymaster to 0)
+(set: $talkedToBarnaby to 0)
+(set: $bridgeDown to 0)
+
+(set: $gateKey to 0)
+(set: $ravenCharm to 0)
+(set: $healthPotions to 5)
+(set: $smallDagger to 1)
+(set: $stoneAxe to 0)
+(set: $boarTusk to 0)
+(set: $rangerMap to 0)
+(set: $northRing to 0)
+
+
+(set: $clueInnGreet to 0)
+(set: $clueChapel to 0)
+(set: $clueRowan to 0)
+(set: $clueWatchtower to 0)
+(set: $stoneMarkers to 0)
+(set: $clueBoarTusk to 0)
+(set: $clueAxe to 0)
+(set: $clueRangerLog to 0)
+
+(set: $playerHp to 100)
+(set: $playerMaxHp to 100)
+
+(set: $lastCombatMsg to "")
+
+(set: $enemyHpBoar to 100)
+(set: $enemyMaxHpBoar to 100)
+
+(set: $enemyHpWolf to 100)
+(set: $enemyMaxHpWolf to 100)
+
+(set: $enemyHpCrawler to 100)
+(set: $enemyMaxHpCrawler to 100)
+
+
+:: Order a pint {"position":"775,675","size":"100,100"}
+<img src="images/haveapint.png" alt="Have a pint">
+[[Talk to a man->Talk to a man]] || [[Leave table->Inn]]
+<audio autoplay loop>
+    <source src="audio/haveapint.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Read Miller's Note {"position":"3375,1125","size":"100,100"}
+(set: $clueAxe to 1)
+<img src="images/watchtower_millernote.png" alt="Old Watchtower">
+''Note added to Journal:'' Miller hid a powerful weapon in the Old Mill. You should find it before continuing to Northern Foothills. 
+[[Go Back->Look at the Table]] 
+  <audio controls>
+    <source src="audio/watchtowermiller.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Read Ranger's Log {"position":"3200,1150","size":"100,100"}
+(set: $clueRangerLog to 1)
+<img src="images/rangerlog.png" alt="Old Watchtower">
+''Note added to Journal:'' Reach out the Highridge Outpost in Northern Foothills.
+[[Go Back->Look at the Table]] 
+  <audio controls>
+    <source src="audio/rangerlog.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Search Campsite {"position":"2350,825","size":"100,100"}
+ (set: $clueWatchtower to 1)
+ <img src="images/tangledmiller2.png" alt="The Tangled Wood">
+ ''Note added to Journal:'' Find the Old Watchtower.
+ [[Go Back->Continue the Road]] 
+  <audio controls>
+    <source src="audio/tangledmiller.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/wagonsound.mp3" type="audio/mpeg">
+</audio>
+
+
+
+
+:: Search Desk {"position":"1850,1950","size":"100,100"}
+(set: $stoneMarkers to 1)
+<img src="images/millerdesk.png" alt="Inside of the Old Mill">
+''Note added to Journal:'' Search for Stone Markers upstream.
+ [[Go Back->Search Mill]] 
+ <audio controls>
+    <source src="audio/millerjournal.mp3" type="audio/mpeg">
+</audio>
+ <audio autoplay>
+  <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/alleyrain2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Search Mill {"position":"1850,1775","size":"100,100"}
+(set: $lastCombatMsg to "")
+<img src="images/insidemill.png" alt="Inside of the Old Mill">
+[[Search the Milles's Desk->Search Desk]] || [[Investigate the Strange Noises->Millcrawler]]  || [[Leave the Mill->Follow the River]] 
+<audio autoplay loop>
+  <source src="audio/millcrack.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/alleyrain2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Search bushes {"position":"2150,1325","size":"100,100"}
+(if: $rangerMap is 0)[
+<img src="images/no_map.png" alt="Crowwater River">
+[[Go Back->Follow the Road]] 
+]
+
+(else:)[
+(if: $enemyHpBoar <= 0)[
+  (goto: "Boar Defeated")
+]
+(if: $playerHp <= 0)[
+  (goto: "Game Over")
+]
+(if: $lastCombatMsg is not "")[
+  *(print: $lastCombatMsg)*
+]
+<video autoplay playsinline loop>
+  <source src="videos/boarfight.mp4" type="video/mp4">
+</video>
+(set: $hpBars to (floor: $enemyHpBoar / $enemyMaxHpBoar * 10))
+(set: $hpEmpty to 10 - $hpBars)
+Briarback Boar *Damage 10-20* HP: [(str-repeated: $hpBars, "█")(str-repeated: $hpEmpty, "░")] (print: $enemyHpBoar)/(print: $enemyMaxHpBoar)
+(set: $pBars to (floor: $playerHp / $playerMaxHp * 10))
+(set: $pEmpty to 10 - $pBars)
+Your HP: [(str-repeated: $pBars, "█")(str-repeated: $pEmpty, "░")] (print: $playerHp)/(print: $playerMaxHp)
+(link: "Attack")[
+  (set: $dmg to (random: 30, 50))
+  (set: $enemyDmg to (random: 10, 20))
+  (set: $enemyHpBoar to (max: 0, $enemyHpBoar - $dmg))
+  (set: $playerHp to (max: 0, $playerHp - $enemyDmg))
+(set: $lastCombatMsg to "You strike the Boar for " + (str: $dmg) + " damage. It hits back for " + (str: $enemyDmg) + " damage.")
+ (goto: "Search bushes")
+]
+[[Flee->Follow the Road]] 
+<audio autoplay loop>
+  <source src="audio/fight.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+  <source src="audio/wolf.mp3" type="audio/mpeg">
+</audio>
+]
+
+
+:: Search corner {"position":"2350,1900","size":"100,100"}
+(set: $stoneAxe to 1)
+<img src="images/stonebreaker.png" alt="The Stonebreaker Axe">
+[[Go Back->Search Mill]]
+<audio autoplay>
+  <source src="audio/axefound.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/alleyrain2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Search the Room {"position":"3000,1100","size":"100,100"}
+(set: $northRing to 1)
+<img src="images/ringfound.png" alt="Old Watchtower">
+[[Go Back->Enter the Tower]] 
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/tentfire.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Search the Wagon {"position":"1950,925","size":"100,100"}
+(set: $rangerMap to 1)
+ <img src="images/rangermap_found.png" alt="Ranger Map">
+[[Go Back->Continue Road]] 
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+
+
+
+:: Speak to Brother Rowan {"position":"850,1475","size":"100,100"}
+<img src="images/rowanriver.png" alt="Brother Rowan">
+[[Ask about the Wilderness->Ask about the Wilderness]]  ||  [[Leave->Go to Chapel]] 
+<audio controls>
+    <source src="audio/rowanriver.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/chant.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Start [nofooter] {"position":"850,200","size":"100,100"}
+<video autoplay playsinline>
+  <source src="videos/gameopening.mp4" type="video/mp4">
+</video>
+(after: 33s)[
+  [[New Game->Village]]
+]
+<audio autoplay loop>
+    <source src="audio/opening.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Stone Markers at the River {"position":"2300,1725","size":"100,100"}
+  <img src="images/stonemarkers.png" alt="Stone Markers">
+[[Continue->Examine the Markers]] || [[Search Mill->Clear the Fallen Marker]] ||   [[Go Back->Continue River]] 
+<audio autoplay>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Stonehollow Map {"position":"750,25","size":"100,100"}
+<img src="images/stonehollow_map.png" alt="Stonehollow Village">
+(link: "Close")[(goto: (history:)'s last)]
+<audio autoplay>
+  <source src="audio/journal.mp3" type="audio/mpeg">
+</audio>
+
+
+:: StoryInit {"position":"1075,250","size":"100,100"}
+
+
+
+:: Talk to Merchant {"position":"1000,675","size":"100,100"}
+(if: $talkedToBarnaby is 1)[
+  <img src="images/merchant.png" alt="The Merchant">
+  [[Ask about the River->Ask about the River]] || [[Buy an apple->Buy an apple]] || [[Back to Marketplace->Marketplace]]
+]
+(else:)[
+  <img src="images/merchantstop.png" alt="The Merchant">
+  [[Back to Marketplace->Marketplace]]
+
+  <audio autoplay>
+      <source src="audio/merchantstop.mp3" type="audio/mpeg">
+  </audio>
+]
+
+<audio autoplay loop>
+    <source src="audio/marketplace2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Talk to Stranger {"position":"1375,425","size":"100,100"}
+<img src="images/keymaster.png" alt="The Stranger">
+(if: $talkedToRowan is 0)[
+  You can't speak to stranger without the blessing from the Chapel.
+]
+(else:)[
+  [[Talk to stranger->Keymaster]] || 
+]   
+[[Back to Marketplace->Marketplace]] 
+<audio autoplay loop>
+    <source src="audio/marketplace2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Talk to a man {"position":"750,850","size":"100,100"}
+(set: $talkedToBarnaby to 1)
+(set: $clueInnGreet to 1)
+<img src="images/olbarnaby.png" alt="Innkeeper">
+''Note added to Journal:'' Pass the greetings to the Market Merchant. 
+[[ Back->Order a pint]]
+<audio controls>
+    <source src="audio/olbarnaby.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay>
+    <source src="audio/treasure.mp3" type="audio/mpeg">
+</audio>
+<audio autoplay loop>
+    <source src="audio/drunkenman2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Toward the Mountains {"position":"2725,1600","size":"100,100"}
+
+
+
+:: Use Boar Tusk {"position":"3350,475","size":"100,100"}
+(set: $bridgeDown to 1)
+<video autoplay playsinline>
+  <source src="videos/watchtower_end.mp4" type="video/mp4">
+</video>
+(after: 33s)[
+  [[Go Back->Climb to Top]]
+]
+
+
+:: Village {"position":"825,425","size":"100,100"}
+<img src="images/village.png" alt="Village of Stonehollow">
+
+[[Visit the Inn->Inn]] || [[Go to the Marketplace->Marketplace]]
+
+<audio autoplay loop>
+    <source src="audio/village.mp3" type="audio/mpeg">
+</audio>
+
+
+:: Wolf Defeated {"position":"2475,1050","size":"100,100"}
+<img src="images/wolfdefeat.png" alt="Victory">
+[[Continue Road->Old Watchtower]]  || [[Go Back->Continue Road]] 
+<audio autoplay>
+<audio autoplay loop>
+  <source src="audio/windblowing2.mp3" type="audio/mpeg">
+</audio>
+
+
+:: footer [footer] {"position":"950,50","size":"100,100"}
+---
+(if: (passage:)'s tags does not contain "nofooter")[
+  [[📖 Journal->Journal]] | [[🎒 Inventory->Inventory]] | [[🗺️ Map of Stonehollow->Stonehollow Map]](if: $rangerMap is 1)[ | [[🗺️ Wilderness Map->Map]]
+]]
+
+
+:: StoryStylesheet [stylesheet]
+/* Whispers of Stonehollow */
+
+tw-story {
+    background-color: #121212;
+    color: #dddddd;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0 auto;
+}
+
+
+/* Kuvat */
+
+img, video {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Otsikot */
+
+h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+}
+
+/* Linkit */
+
+tw-link {
+    color: #d1a85d;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+tw-link:hover {
+    color: #f2c97d;
+}
+
+.glow-text {
+  color: cyan;
+  text-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 20px cyan;
+  font-weight: bold;
+}
+
+.enemy-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enemy-box img {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.hp-bar-container {
+  width: 250px;
+  height: 20px;
+  background: #333;
+  border: 2px solid #000;
+}
+
+.hp-bar-fill {
+  height: 100%;
+  background: red;
+  transition: width 0.3s ease;
+}
+
+.inventory-panel {
+  border: 1px solid #888;
+  background: #111;
+  padding: 16px;
+  font-family: monospace;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.inventory-panel::before {
+  content: "═══════ INVENTORY ═══════";
+  display: block;
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.journal-panel {
+  border: 1px solid #888;
+  background: #111;
+  padding: 16px;
+  font-family: monospace;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.journal-panel::before {
+  content: "═══════ JOURNAL ═══════";
+  display: block;
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.hp-hud {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #111;
+  border: 1px solid #888;
+  padding: 6px 12px;
+  font-family: monospace;
+  color: #eee;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+tw-include[type="header"] {
+  display: block;
+  height: 0;
+  overflow: visible;
+}
