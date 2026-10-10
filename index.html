@@ -304,6 +304,7 @@ You gave the key to Brother Rowan.
 (set: $stoneMarkers to 0)
 (set: $clueAxe to 0)
 (set: $clueRangerLog to 0)
+ (set: $clueLowerBridge to 0)
 
 (set: $playerHp to 100)
 (set: $playerMaxHp to 100)
@@ -371,6 +372,7 @@ You gave the key to Brother Rowan.
 (if: $clueWatchtower is 1)[📝 Find the Old Watchtower.&lt;br&gt;]
 (if: $clueBoarTusk is 1)[📝 Kill a wild boar and get it&#39;s tusk.&lt;br&gt;]
 (if: $clueAxe is 1)[📝 Miller hid a powerful weapon in the Old Mill. You should find it before continuing to Northern Foothills..&lt;br&gt;]
+(if: $clueLowerBridge is 1)[📝 You need to find a way to lower the bridge.&lt;br&gt;]
 (if: $clueRangerLog is 1)[📝 Reach out the Highridge Outpost in Northern Foothills.&lt;br&gt;]
 
 &lt;/div&gt;
@@ -485,6 +487,7 @@ Your HP: [(str-repeated: $pBars, &quot;█&quot;)(str-repeated: $pEmpty, &quot;�
 (set: $clueBoarTusk to 0)
 (set: $clueAxe to 0)
 (set: $clueRangerLog to 0)
+ (set: $clueLowerBridge to 0)
 
 (set: $playerHp to 100)
 (set: $playerMaxHp to 100)
@@ -722,7 +725,13 @@ Your HP: [(str-repeated: $pBars, &quot;█&quot;)(str-repeated: $pEmpty, &quot;�
   &lt;audio autoplay&gt;
     &lt;source src=&quot;audio/treasure.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;
-]</tw-passagedata><tw-passagedata pid="58" name="Look towards to Mountains" tags="" position="3350,875" size="100,100">&lt;img src=&quot;images/watchtower_view.png&quot; alt=&quot;Northern Foothills&quot;&gt;
+]
+&lt;audio autoplay loop&gt;
+  &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+&lt;audio autoplay loop&gt;
+    &lt;source src=&quot;audio/tentfire.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="58" name="Look towards to Mountains" tags="" position="3350,875" size="100,100">&lt;img src=&quot;images/watchtower_view.png&quot; alt=&quot;Northern Foothills&quot;&gt;
 [[Go Back-&gt;Climb to Top]] 
 &lt;audio autoplay loop&gt;
   &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
@@ -782,15 +791,33 @@ Your HP: [(str-repeated: $pBars, &quot;█&quot;)(str-repeated: $pEmpty, &quot;�
 [[Continue-&gt;Examine the Markers]] || [[Search Mill-&gt;Clear the Fallen Marker]] ||   [[Go Back-&gt;Continue River]] 
 &lt;audio autoplay&gt;
   &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="66" name="Examine the Markers" tags="" position="2575,1750" size="100,100"> &lt;img src=&quot;images/stonemarker_miller.png&quot; alt=&quot;Miller&#39;s Note&quot;&gt;
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="66" name="Examine the Markers" tags="" position="2575,1750" size="100,100"> (set: $clueLowerBridge to 1)
+ &lt;img src=&quot;images/stonemarker_miller.png&quot; alt=&quot;Miller&#39;s Note&quot;&gt;
+ &#39;&#39;Note added to Journal:&#39;&#39; You need to find a way to lower the bridge.
  [[Go Back-&gt;Stone Markers at the River]] 
+  &lt;audio controls&gt;
+    &lt;source src=&quot;audio/millerjournal.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
 &lt;audio autoplay&gt;
   &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+ &lt;audio autoplay&gt;
+  &lt;source src=&quot;audio/treasure.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
 &lt;/audio&gt;</tw-passagedata><tw-passagedata pid="67" name="Clear the Fallen Marker" tags="" position="2575,1900" size="100,100"> &lt;img src=&quot;images/stonemarker_fallen.png&quot; alt=&quot;Fallen Marker&quot;&gt;
  [[Go Back-&gt;Stone Markers at the River]] 
 &lt;audio autoplay&gt;
   &lt;source src=&quot;audio/windblowing2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="68" name="Toward the Mountains" tags="" position="2725,1600" size="100,100"></tw-passagedata></tw-storydata>
+&lt;/audio&gt;</tw-passagedata><tw-passagedata pid="68" name="Toward the Mountains" tags="" position="2725,1600" size="100,100">&lt;video autoplay playsinline&gt;
+  &lt;source src=&quot;videos/across_bridge.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+(after: 19s)[
+  (goto: &quot;Bear Fight&quot;)]</tw-passagedata><tw-passagedata pid="69" name="Bear Fight" tags="" position="2925,1550" size="100,100">&lt;video autoplay playsinline loop&gt;
+  &lt;source src=&quot;videos/rootbound_bear.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+ [[Flee-&gt;Crowwater Bridge]] 
+&lt;audio autoplay loop&gt;
+  &lt;source src=&quot;audio/fight.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
